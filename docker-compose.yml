@@ -1,0 +1,9 @@
+version: '3.5'
+
+services:
+  webperf:
+    deploy:
+    build: .
+    container_name: webperf
+    environment:
+      URLS: "www.exemple.com"
