@@ -354,4 +354,10 @@ def main(argv):
 If file is executed on itself then call a definition, mostly for testing purposes
 """
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    parameters = sys.argv[1:]
+    if os.environ['TEST']:
+        parameters.append('test=' + os.environ['TEST'])
+    if os.environ['URLS']:
+        for url in os.environ['URLS'].split(' '):
+            parameters.append('test="' + url + '"')
+    main(parameters)
